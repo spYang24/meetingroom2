@@ -1,0 +1,2 @@
+pip install pyinstaller (패키지 설치)
+pyinstaller -w 실행명.py (콘솔창 없이 파일 생성)
