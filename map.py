@@ -9,7 +9,7 @@ kor = ('문자열', '정수', '리스트', '튜플', '딕셔너리',
       '타입', '출력', '반복문', '변수' )
 eng = ('input', 'int', 'string', 'type', 'list', 'class',
       'print', 'python', 'tuple', 'for', 'if', 'while',
-     'thread', 'random', 'with', 'commit', )
+     'thread', 'random', 'with', 'commit' )
 
  
 class CWord:
