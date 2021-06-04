@@ -10,8 +10,7 @@ kor = ('문자열', '정수', '리스트', '튜플', '딕셔너리',
 eng = ('input', 'int', 'string', 'type', 'list', 'class',
       'print', 'python', 'tuple', 'for', 'if', 'while',
      'thread', 'random', 'with', 'commit', )
- 
- 
+
  
 class CWord:
  
@@ -30,11 +29,11 @@ class CMap:
         self.word = []
         self.thread = Thread(target=self.play)        
         self.bthread = False       
-        self.lock = Lock()        
+        self.lock = Lock()
  
     def __del__(self):
         self.gameOver()
- 
+
     def gameStart(self, lang, level):
         self.lang = lang
         self.level = level
@@ -48,7 +47,6 @@ class CMap:
         self.bthread = False
         self.word.clear()
         self.parent.update()
-         
  
     def draw(self, qp):
         qp.setFont(QFont('맑은 고딕', 12))
@@ -56,7 +54,7 @@ class CMap:
         for w in self.word:
             qp.drawText(w.pt, w.word)        
         self.lock.release()
- 
+
     def createWord(self):  
          
         self.rect= QRect(self.parent.rect())
@@ -75,9 +73,8 @@ class CMap:
         y = 0
  
         cword = CWord(QPointF(x,y), str)
-        self.word.append(cword) 
- 
- 
+        self.word.append(cword)
+
     def downWord(self, speed):      
  
         i=0
@@ -86,16 +83,23 @@ class CMap:
                 w.pt.setY(w.pt.y()+speed)
                 i+=1
             else:
-                del(self.word[i])        
-         
-    def delword(self, str):
- 
+                del(self.word[i])
+
+SCORE = 0
+LEVEL = 1
+
+    def delword(self, str, gameOver):
+        global SCORE, LEVEL
         self.lock.acquire()
- 
+
         i=0
         find = False
         for w in self.word[:]:
-            if str == w.word:
+            if SCORE = 100:
+                LEVEL += 1
+                gameOver(self)
+            elif str == w.word :
+                SCORE += 5
                 del(self.word[i])
                 find = True
                 break
