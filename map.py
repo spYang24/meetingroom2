@@ -85,21 +85,19 @@ class CMap:
             else:
                 del(self.word[i])
 
-SCORE = 0
-LEVEL = 1
+score = 0
 
     def delword(self, str, gameOver):
-        global SCORE, LEVEL
+        global score
         self.lock.acquire()
 
         i=0
         find = False
         for w in self.word[:]:
-            if SCORE = 100:
-                LEVEL += 1
+            if score = 100:
                 gameOver(self)
             elif str == w.word :
-                SCORE += 5
+                score += 5
                 del(self.word[i])
                 find = True
                 break
