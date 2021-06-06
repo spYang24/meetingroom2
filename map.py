@@ -11,7 +11,8 @@ eng = ('input', 'int', 'string', 'type', 'list', 'class',
       'print', 'python', 'tuple', 'for', 'if', 'while',
      'thread', 'random', 'with', 'commit' )
 
- 
+score=0
+
 class CWord:
  
     def __init__(self, pt, word):
@@ -85,19 +86,18 @@ class CMap:
             else:
                 del(self.word[i])
 
-score = 0
 
-    def delword(self, str, gameOver):
+
+    def delword(self, str):
         global score
         self.lock.acquire()
-
+ 
         i=0
         find = False
         for w in self.word[:]:
-            if score = 100:
-                gameOver(self)
-            elif str == w.word :
-                score += 5
+            if str == w.word:
+                score += 3
+                print(score)
                 del(self.word[i])
                 find = True
                 break
