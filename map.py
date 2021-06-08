@@ -3,14 +3,23 @@ from PyQt5.QtGui import QFont
 from threading import Thread, Lock
 from random import randint
 from time import sleep
- 
+import pandas as pd
+
+words = pd.read_csv("C:\\Users\\tjdvy\\meetingroom2\\단어장.csv", encoding='cp949')
+
+한글 = words["한글"]
+영어 = words["영어"]
+
+kor = 한글.values.tolist()
+eng = 영어.values.tolist()
+'''
 # 튜플 단어장
 kor = ('문자열', '정수', '리스트', '튜플', '딕셔너리',
       '타입', '출력', '반복문', '변수' )
 eng = ('input', 'int', 'string', 'type', 'list', 'class',
       'print', 'python', 'tuple', 'for', 'if', 'while',
      'thread', 'random', 'with', 'commit' )
-
+'''
 score=0
 
 class CWord:
@@ -87,7 +96,6 @@ class CMap:
                 del(self.word[i])
 
 
-
     def delword(self, str):
         global score
         self.lock.acquire()
@@ -144,3 +152,4 @@ class CMap:
  
             self.parent.update()
             sleep(0.01)   
+  
