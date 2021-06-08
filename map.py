@@ -119,11 +119,27 @@ class CMap:
  
             self.lock.acquire()
             if self.level == 0:
-                self.downWord(0.3)
+                #김예영 학우님
+                if score < 10:#임의로 score에 변화를 주었음..
+                    self.downWord(0.3)
+                elif 10 <= score <20:
+                    self.downWord(0.5)
+                else:
+                    self.downWord(0.7)
             elif self.level == 1:
-                self.downWord(0.5)
+                if score < 10:
+                    self.downWord(0.7)
+                elif 10 <= score <20:
+                    self.downWord(1.0)
+                else:
+                    self.downWord(1.5)
             else:
-                self.downWord(0.7)
+                if score < 10:
+                    self.downWord(1.5)
+                elif 10 <= score <20:
+                    self.downWord(1.7)
+                else:
+                    self.downWord(2.0)
             self.lock.release()
  
             self.parent.update()
