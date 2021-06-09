@@ -5,17 +5,19 @@ import map
  
 class CWidget(QWidget):
     def __init__(self):
-        btn = QPushButton(str(map.score), self)
-        print(map.score)
-        btn.resize(btn.sizeHint())
-        btn.move(0, 10)
         
         super().__init__()
  
         self.initUI()
  
     def initUI(self):
- 
+        
+        #점수 확인 버튼    
+        btn = QPushButton(str(map.score), self) 
+        print(map.score)
+        btn.resize(btn.sizeHint())
+        btn.move(0, 10)
+        
         #컨트롤 레이아웃 박스
         self.vbox = QVBoxLayout()
         self.hbox = QHBoxLayout()
