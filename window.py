@@ -1,7 +1,7 @@
 from PyQt5.QtGui import *
 from PyQt5.QtCore import *
 from PyQt5.QtWidgets import *
-import map
+from map1 import CMap
  
 class CWidget(QWidget):
     def __init__(self):
@@ -12,11 +12,10 @@ class CWidget(QWidget):
  
     def initUI(self):
         
-        #점수 확인 버튼    
-        btn = QPushButton(str(map.score), self) 
-        print(map.score)
-        btn.resize(btn.sizeHint())
-        btn.move(0, 10)
+        #점수표시
+        self.btn1 = QPushButton("0", self)        
+        self.btn1.resize(self.btn1.sizeHint())
+        self.btn1.move(0, 10)
         
         #컨트롤 레이아웃 박스
         self.vbox = QVBoxLayout()
@@ -55,27 +54,30 @@ class CWidget(QWidget):
         self.setGeometry(100,100, 500,500)
         self.setWindowTitle('파이썬 문법 타자연습')
  
-        self.map = map.CMap(self)
+        self.map1 = CMap(self)
  
+    
     def closeEvent(self, e):
-        self.map.gameOver()
+        self.map1.gameOver()
  
     def paintEvent(self, e):
         qp = QPainter();
         qp.begin(self)
-        self.map.draw(qp)
+        self.map1.draw(qp)
         qp.end()
          
  
     def toggleButton(self, state):
         if state:
-            self.map.gameStart(self.lang.currentIndex(),
+            self.map1.gameStart(self.lang.currentIndex(),
                               self.level.currentIndex())
             self.btn.setText('게임종료')
+            scorereset = self.map1.score=0
+            self.btn1.setText(str(scorereset))
             self.lang.setEnabled(False)
             self.level.setEnabled(False)
         else:
-            self.map.gameOver()
+            self.map1.gameOver()
             self.btn.setText('게임시작')
             self.lang.setEnabled(True)
             self.level.setEnabled(True)
@@ -86,5 +88,6 @@ class CWidget(QWidget):
  
         # 엔터키 입력시 단어 확인
         if e.key() == Qt.Key_Return:
-            self.map.delword(self.edit.text())
+            self.map1.delword(self.edit.text())
             self.edit.setText('')
+            self.btn1.setText(str(self.map1.score))
