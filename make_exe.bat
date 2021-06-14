@@ -1,0 +1,1 @@
+pyinstaller.exe --windowed --add-data "´Ü¾îÀå.csv;." -F main.py

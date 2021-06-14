@@ -4,9 +4,17 @@ from threading import Thread, Lock
 from random import randint
 from time import sleep 
 import pandas as pd
+import os, sys
 
+# 1. for pyinstaller
+current_path = os.getcwd()
+os.chdir(getattr(sys, '_MEIPASS', current_path))
 
-words = pd.read_csv('단어장.csv', encoding='cp949')
+경로 = os.path.join(os.path.abspath('') , '단어장.csv')
+words = pd.read_csv(경로, encoding='cp949')
+
+# 2. for pyinstaller
+os.chdir(current_path)
 
 한글 = words["한글"]
 영어 = words["영어"]
