@@ -8,7 +8,7 @@
 
 # GAME 실행방법 🕹
 
-# exe파일 다운로드 👉 https://drive.google.com/file/d/11ApRmHiirtzTkIB-AnXr95bVvD5gTlif/view?usp=sharing 👈
+# exe파일 다운로드 👇 https://drive.google.com/file/d/11ApRmHiirtzTkIB-AnXr95bVvD5gTlif/view?usp=sharing 
 
 ## 1. 다운로드 링크 접속하여 파이썬타자연습게임.exe 다운로드
 ## 2. 다운로드한 파이썬타자연습게임.exe 파일 실행.<br/>
