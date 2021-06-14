@@ -8,4 +8,6 @@ if __name__ == '__main__':
     w = CWidget()
     w.show()
     sys.exit(app.exec_())
-###시험삼아..
+
+
+
